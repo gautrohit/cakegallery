@@ -1,0 +1,6 @@
+.d-flex {
+  display: flex;
+}
+.custom-file-input:lang(en) ~ .custom-file-label::after {
+  display: none;
+}

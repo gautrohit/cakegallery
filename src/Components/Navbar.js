@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Navbar() {
+  var [title, setTitle] = useState("Cake Gallery");
+
+  function demo() {
+    var value = document.getElementById("serchinput").value;
+    setTitle(value);
+  }
   return (
     <div>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
-          Navbar
+          {title}
         </a>
         <button
           class="navbar-toggler"
@@ -69,10 +75,13 @@ export default function Navbar() {
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <input
+              onChange={demo}
+              id="serchinput"
               class="form-control mr-sm-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
+              value={title}
             />
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
               Search

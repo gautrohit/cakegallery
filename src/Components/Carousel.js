@@ -19,25 +19,13 @@ export default function Carousel() {
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img
-              src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png"
-              class=""
-              alt=""
-            />
+            <img src="http://placekitten.com/1600/600" class="" alt="" />
           </div>
           <div class="carousel-item">
-            <img
-              src="https://homepages.cae.wisc.edu/~ece533/images/arctichare.png"
-              class=""
-              alt=""
-            />
+            <img src="http://placekitten.com/1600/600" class="" alt="" />
           </div>
           <div class="carousel-item">
-            <img
-              src="https://homepages.cae.wisc.edu/~ece533/images/boat.png"
-              class=""
-              alt=""
-            />
+            <img src="http://placekitten.com/1600/600" class="" alt="" />
           </div>
         </div>
         <a
