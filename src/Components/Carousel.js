@@ -1,5 +1,9 @@
 import React from "react";
 
+let carousel1 = "image1.jpg";
+let carousel2 = "image2.jpg";
+let carousel3 = "image3.jpg";
+
 export default function Carousel() {
   return (
     <div>
@@ -19,13 +23,13 @@ export default function Carousel() {
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="http://placekitten.com/1600/600" class="" alt="" />
+            <img src={carousel1} class="d-block w-100" alt="" />
           </div>
           <div class="carousel-item">
-            <img src="http://placekitten.com/1600/600" class="" alt="" />
+            <img src={carousel2} class="d-block w-100" alt="" />
           </div>
           <div class="carousel-item">
-            <img src="http://placekitten.com/1600/600" class="" alt="" />
+            <img src={carousel3} class="d-block w-100" alt="" />
           </div>
         </div>
         <a

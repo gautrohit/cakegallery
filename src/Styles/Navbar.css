@@ -1,0 +1,6 @@
+#navbarSupportedContent {
+  justify-content: flex-end;
+}
+.login-btn {
+  margin-left: 20px;
+}

@@ -1,15 +1,21 @@
-import logo from "./logo.svg";
-import "./Styles/CakeDetails.css";
 import Navbar from "./Components/Navbar";
-import Carousel from "./Components/Carousel";
-import CakeDetails from "./Components/CakeDetails";
+import "./Styles/CakeDetails.css";
+import Login from "./Components/Login";
+import Signup from "./Components/Signup";
+import Home from "./Components/Home";
+import Search from "./Components/Search";
+import { Switch, Route } from "react-router";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Carousel />
-      <CakeDetails />
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/search" component={Search} />
+      </Switch>
     </div>
   );
 }

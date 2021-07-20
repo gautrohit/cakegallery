@@ -4,3 +4,9 @@
 .custom-file-input:lang(en) ~ .custom-file-label::after {
   display: none;
 }
+.bg-color {
+  background-color: gainsboro;
+}
+.txt-cnt {
+  text-align: center;
+}

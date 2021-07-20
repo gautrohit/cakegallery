@@ -2,9 +2,9 @@ import React from "react";
 
 export default function CakeDetails() {
   return (
-    <div class="container mt-3">
+    <div class="container mt-3 bg-color">
       <form>
-        <h2>Add Cake Details</h2>
+        <h2 className="txt-cnt">Add Cake Details</h2>
         <br></br>
         <h5 className="d-flex">Product Image:</h5>
         <br></br>
@@ -24,7 +24,7 @@ export default function CakeDetails() {
             </label>
           </div>
           <div class="input-group-append ml-5">
-            <button class="btn btn-outline-secondary" type="button">
+            <button class="btn btn-primary" type="button">
               Upload
             </button>
           </div>
