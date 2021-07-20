@@ -1,0 +1,7 @@
+>>>>>>>>>>>>>>>>>>>>>deployment command:>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+heroku login
+git init
+heroku git:remote "gautamcakegallery"
+git add .
+git commit -m "test"
+git push heroku master
