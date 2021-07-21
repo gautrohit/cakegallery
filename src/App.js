@@ -5,6 +5,7 @@ import Signup from "./Components/Signup";
 import Home from "./Components/Home";
 import Search from "./Components/Search";
 import { Switch, Route } from "react-router";
+import PageNotFound from "./Components/PageNotFound";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/search" component={Search} />
+        <Route path="**" component={PageNotFound} />
       </Switch>
     </div>
   );

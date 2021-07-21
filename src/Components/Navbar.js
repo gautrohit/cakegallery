@@ -1,9 +1,22 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "../Styles/Navbar.css";
 
-export default function Navbar() {
+function Navbar(props) {
   var [title, setTitle] = useState("Cake Gallery");
+  var [searchText, setSearch] = useState(undefined);
+
+  // function getSeachText(e) {
+  //   setSearch(e.target.value);
+  // }
+  function searchBtn(e) {
+    e.preventDefault();
+
+    if (searchText) {
+      var url = "/search?q=" + searchText;
+      props.history.push(url);
+    }
+  }
   return (
     <div>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -19,10 +32,13 @@ export default function Navbar() {
               type="search"
               placeholder="Search"
               aria-label="Search"
-              value={title}
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
             />
             <Link to="/search">
               <button
+                onClick={searchBtn}
                 class="btn btn-outline-success my-2 my-sm-0"
                 type="submit"
               >
@@ -40,3 +56,4 @@ export default function Navbar() {
     </div>
   );
 }
+export default Navbar = withRouter(Navbar);
