@@ -7,9 +7,9 @@ import Cake from "./Cake";
 export default function Home() {
   return (
     <div>
-      {/* <Carousel />
+      <Carousel />
       <CakeList />
-      <CakeDetails /> */}
+      <CakeDetails />
       <Cake />
     </div>
   );
