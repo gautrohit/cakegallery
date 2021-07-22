@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Component, PureComponent } from "react";
 import Loader from "react-loader-spinner";
 
@@ -25,17 +26,19 @@ class Signup extends PureComponent {
     this.user.name = event.target.value;
   };
   signup = (event) => {
-    // updating the state
-    this.setState({
-      loading: 98,
-    });
-    console.log("......................", this.user);
-    //    setTimeout(()=>{
-    //        this.setState({
-    //            loading:false,
-    //            errorMessage:"Invalid Credentials"
-    //        })
-    //    },5000)
+    let apiurl = "https://apifromashu.herokuapp.com/api/register";
+
+    axios({
+      method: "post",
+      url: apiurl,
+      data: this.user,
+    })
+      .then((res) => {
+        console.log("post done" + res);
+      })
+      .catch((err) => {
+        console.log("error!!" + err);
+      });
     event.preventDefault();
   };
 

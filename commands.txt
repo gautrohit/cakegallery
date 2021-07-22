@@ -5,3 +5,13 @@ heroku git:remote "gautamcakegallery"
 git add .
 git commit -m "test"
 git push heroku master
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>...
+/recoverpassword post {email}
+
+9654235010 - Ashu
+
+>>>>>>>>>complete site
+https://my-cake-house.herokuapp.com/
