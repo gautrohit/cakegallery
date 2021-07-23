@@ -7,13 +7,9 @@ class Signup extends PureComponent {
     super();
     // initialising the state
     this.state = {
-      name: "Dell",
-      loading: 0,
+      name: "",
     };
   }
-  componentDidMount() {}
-
-  componentDidUpdate() {}
   user = {};
 
   handleEmail = (event) => {
@@ -43,19 +39,6 @@ class Signup extends PureComponent {
   };
 
   render() {
-    // var loader
-    // if(this.state.loading){
-    //      loader =  <Loader
-    //     type="ThreeDots"
-    //     color="#00BFFF"
-    //     height={100}
-    //     width={100} //3 secs
-    //   />
-    // }
-    // else{
-    //     loader = null
-    // }
-
     return (
       <div style={{ width: "50%", margin: "auto" }}>
         {this.state.loading}

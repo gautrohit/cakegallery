@@ -3,12 +3,10 @@ import { Link, withRouter } from "react-router-dom";
 import "../Styles/Navbar.css";
 
 function Navbar(props) {
+  console.log(props.userLoggedIn);
   var [title, setTitle] = useState("Cake Gallery");
   var [searchText, setSearch] = useState(undefined);
 
-  // function getSeachText(e) {
-  //   setSearch(e.target.value);
-  // }
   function searchBtn(e) {
     e.preventDefault();
 
@@ -17,9 +15,14 @@ function Navbar(props) {
       props.history.push(url);
     }
   }
+  function logout() {
+    alert("Are you sure want to Logout");
+    localStorage.removeItem("token");
+    window.location.reload();
+  }
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <Link class="navbar-brand" to="/">
           {title}
         </Link>
@@ -45,11 +48,30 @@ function Navbar(props) {
                 Search
               </button>
             </Link>
-            <Link to="/login">
-              <button class="btn btn-primary my-2 my-sm-0 login-btn">
-                Login
-              </button>
-            </Link>
+            {!props.userLoggedIn && (
+              <form class="form-inline my-2 my-lg-0">
+                <Link to="/login">
+                  <button class="btn btn-primary my-2 my-sm-0 login-btn">
+                    Login
+                  </button>
+                </Link>
+              </form>
+            )}
+            {props.userLoggedIn && (
+              <form class="form-inline my-2 my-lg-0">
+                <Link to="/login">
+                  <button
+                    onClick={logout}
+                    class="btn btn-danger my-2 my-sm-0 login-btn"
+                  >
+                    Logout
+                  </button>
+                </Link>
+                <button class="btn btn-warning my-2 my-sm-0 login-btn">
+                  Cart
+                </button>
+              </form>
+            )}
           </form>
         </div>
       </nav>

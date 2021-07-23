@@ -1,30 +1,32 @@
+import axios from "axios";
 import { Component } from "react";
 import { Link } from "react-router-dom";
 
 class Login extends Component {
   constructor() {
     super();
-    // initialising the state
     this.state = {
-      name: "Ashu",
+      name: "",
     };
   }
   user = {};
 
-  handleEmail = (event) => {
-    this.user.email = event.target.value;
-  };
-  handlePassword = (event) => {
-    this.user.password = event.target.value;
-  };
-  login = (event) => {
-    // updating the state
-    this.setState({
-      name: "Ashu Lekhi",
-      errorMessage: "Invalid Credentials",
+  login = (e) => {
+    e.preventDefault();
+    let apiurl = "https://apifromashu.herokuapp.com/api/login";
+
+    axios({
+      method: "post",
+      url: apiurl,
+      data: this.user,
+    }).then((res) => {
+      console.log("*******Responce from Login API*********", res);
+
+      if (res.data.token) {
+        this.props.loggedIn();
+        localStorage.token = res.data.token;
+      }
     });
-    console.log("......................", this.user);
-    event.preventDefault();
   };
 
   render() {
@@ -35,7 +37,7 @@ class Login extends Component {
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input
-              onChange={this.handleEmail}
+              onChange={(e) => (this.user.email = e.target.value)}
               type="email"
               class="form-control"
               id="exampleInputEmail1"
@@ -49,7 +51,7 @@ class Login extends Component {
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
             <input
-              onChange={this.handlePassword}
+              onChange={(e) => (this.user.password = e.target.value)}
               type="password"
               class="form-control"
               placeholder="Password"

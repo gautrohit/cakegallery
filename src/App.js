@@ -6,14 +6,25 @@ import Home from "./Components/Home";
 import Search from "./Components/Search";
 import { Switch, Route } from "react-router";
 import PageNotFound from "./Components/PageNotFound";
+import { useState } from "react";
 
 function App() {
+  const [userLoggedIn, setUserLoggedIn] = useState(
+    localStorage.token ? true : false
+  );
+
+  function loggedIn() {
+    setUserLoggedIn(true);
+  }
+
   return (
     <div className="App">
-      <Navbar />
+      <Navbar userLoggedIn={userLoggedIn} />
       <Switch>
         <Route path="/" component={Home} exact />
-        <Route path="/login" component={Login} />
+        <Route path="/login">
+          <Login loggedIn={loggedIn} />
+        </Route>
         <Route path="/signup" component={Signup} />
         <Route path="/search" component={Search} />
         <Route path="**" component={PageNotFound} />
