@@ -1,53 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Styles/Cake.css";
 
-function Cake() {
+function Cake(props) {
+  const [ingred, setIngred] = useState([]);
+  const {
+    image,
+    name,
+    price,
+    weight,
+    description,
+    likes,
+    ratings,
+    reviews,
+    type,
+    flavour,
+    eggless,
+    ingredients,
+  } = props.data;
   return (
-    <div class="container">
+    <div class="container mt-5" style={{ border: "1px solid #000" }}>
       <div class="row">
         <div class="col-sm-4">
           <br></br>
-          <img src="./cake2.jpg" class="img-fluid" alt="Responsive image"></img>
+          <img src={image} class="img-fluid" alt="Responsive image"></img>
         </div>
         <div class="col-sm-6 other text-center">
           <br />
-          <h4>Molten Cake</h4>
+          <h4>{name}</h4>
           <div>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star"></span>
             <span class="fa fa-star"></span>
-            &nbsp;&nbsp; <span>3.0</span>
+            &nbsp;&nbsp; <span>{ratings}</span>
           </div>
-          <div className="pb-2">200 Views</div>
+          <div className="pb-2">{reviews} Views</div>
           <div className="pb-2">
-            <h5>AMolten chocolate cake for a party of 2 people.</h5>
-          </div>
-          <div className="pb-2">
-            <h5>Current Price : ₹ 315</h5>
+            <h5>{description}</h5>
           </div>
           <div className="pb-2">
-            <h5>Weight :0.5 Kg</h5>
+            <h5>Current Price : ₹ {price}</h5>
           </div>
           <div className="pb-2">
-            <h5>Flavour : Chocolate</h5>
+            <h5>Weight :{weight} Kg</h5>
           </div>
           <div className="pb-2">
-            <h5>Occasion : Special</h5>
+            <h5>Flavour : {flavour}</h5>
+          </div>
+          <div className="pb-2">
+            <h5>Occasion : {type}</h5>
           </div>
         </div>
       </div>
       <div className="row">
         <div class="col-sm-4">
           <h3>Ingredients:</h3>
-          <ul class="a">
-            <li>milk</li>
-            <li>egg</li>
-            <li>Chocolate</li>
-            <li>granulated sugar</li>
-            <li>butter</li>
-          </ul>
+          {ingredients.map((each, index) => {
+            console.log("ingred::" + each);
+            return <li>{each}</li>;
+          })}
         </div>
         <div class="col-sm-8 text-center">
           <button className="btn btn-primary"> Add to Cart</button>

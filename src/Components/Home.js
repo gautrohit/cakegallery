@@ -10,7 +10,6 @@ export default function Home() {
       <Carousel />
       <CakeList />
       <CakeDetails />
-      <Cake />
     </div>
   );
 }

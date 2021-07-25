@@ -67,9 +67,11 @@ function Navbar(props) {
                     Logout
                   </button>
                 </Link>
-                <button class="btn btn-warning my-2 my-sm-0 login-btn">
-                  Cart
-                </button>
+                <Link to="/cart">
+                  <button class="btn btn-warning my-2 my-sm-0 login-btn">
+                    Cart
+                  </button>
+                </Link>
               </form>
             )}
           </form>

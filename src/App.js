@@ -7,6 +7,9 @@ import Search from "./Components/Search";
 import { Switch, Route } from "react-router";
 import PageNotFound from "./Components/PageNotFound";
 import { useState } from "react";
+import CakeDetails from "./Components/CakeDetails";
+import Cake from "./Components/Cake";
+import Cart from "./Components/Cart";
 
 function App() {
   const [userLoggedIn, setUserLoggedIn] = useState(
@@ -27,6 +30,8 @@ function App() {
         </Route>
         <Route path="/signup" component={Signup} />
         <Route path="/search" component={Search} />
+        <Route path="/cake" component={Cake} />
+        <Route path="/cart" component={Cart} />
         <Route path="**" component={PageNotFound} />
       </Switch>
     </div>
