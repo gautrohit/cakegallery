@@ -1,18 +1,19 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { connect } from "react-redux";
 function Login(props) {
   var [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const user = {};
 
-  const login = async (e) => {
+  const login = (e) => {
     e.preventDefault();
     let apiurl = "https://apifromashu.herokuapp.com/api/login";
 
-    await axios({
+    axios({
       method: "post",
       url: apiurl,
       data: user,
@@ -20,9 +21,12 @@ function Login(props) {
       console.log("*******Responce from Login API*********", res);
 
       if (res.data.token) {
-        props.loggedIn();
+        props.dispatch({
+          type: "LOGIN",
+          payload: res.data,
+        });
         localStorage.token = res.data.token;
-        toast.success("Login Passes", {
+        toast.success("Login Passed", {
           position: "top-right",
         });
       } else {
@@ -80,4 +84,4 @@ function Login(props) {
   );
 }
 
-export default Login;
+export default connect()(Login);

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import "../Styles/Navbar.css";
 
@@ -80,4 +81,12 @@ function Navbar(props) {
     </div>
   );
 }
-export default Navbar = withRouter(Navbar);
+
+Navbar = withRouter(Navbar);
+
+export default connect(function (state, props) {
+  return {
+    userLoggedIn: state["AuthReducer"]["userLoggedIn"],
+    name: state["AuthReducer"]["user"] && state["AuthReducer"]["user"]["name"],
+  };
+})(Navbar);

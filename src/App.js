@@ -12,21 +12,21 @@ import Cake from "./Components/Cake";
 import Cart from "./Components/Cart";
 
 function App() {
-  const [userLoggedIn, setUserLoggedIn] = useState(
-    localStorage.token ? true : false
-  );
+  // const [userLoggedIn, setUserLoggedIn] = useState(
+  //   localStorage.token ? true : false
+  // );
 
-  function loggedIn() {
-    setUserLoggedIn(true);
-  }
+  // function loggedIn() {
+  //   setUserLoggedIn(true);
+  // }
 
   return (
     <div className="App">
-      <Navbar userLoggedIn={userLoggedIn} />
+      <Navbar />
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/login">
-          <Login loggedIn={loggedIn} />
+          <Login />
         </Route>
         <Route path="/signup" component={Signup} />
         <Route path="/search" component={Search} />
