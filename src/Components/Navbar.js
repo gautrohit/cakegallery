@@ -5,7 +5,7 @@ import "../Styles/Navbar.css";
 
 function Navbar(props) {
   console.log(props.userLoggedIn);
-  var [title, setTitle] = useState("Cake Gallery");
+  var [title, setTitle] = useState("Cake-Gallery");
   var [searchText, setSearch] = useState(undefined);
 
   function searchBtn(e) {
