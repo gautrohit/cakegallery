@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Component, PureComponent } from "react";
 import Loader from "react-loader-spinner";
+import { ToastContainer, toast } from "react-toastify";
 
 class Signup extends PureComponent {
   constructor() {
@@ -22,6 +23,7 @@ class Signup extends PureComponent {
     this.user.name = event.target.value;
   };
   signup = (event) => {
+    event.preventDefault();
     let apiurl = "https://apifromashu.herokuapp.com/api/register";
 
     axios({
@@ -35,21 +37,25 @@ class Signup extends PureComponent {
       .catch((err) => {
         console.log("error!!" + err);
       });
-    event.preventDefault();
+
+    if (
+      this.user.name === "" ||
+      this.user.email === "" ||
+      this.user.password === ""
+    ) {
+      toast.info("Please Enter Field", {
+        position: "top-center",
+      });
+    } else {
+      toast.success("Thank-you for Signing Up", {
+        position: "top-right",
+      });
+    }
   };
 
   render() {
     return (
-      <div style={{ width: "50%", margin: "auto" }}>
-        {this.state.loading}
-        {this.state.loading && (
-          <Loader
-            type="ThreeDots"
-            color="#00BFFF"
-            height={100}
-            width={100} //3 secs
-          />
-        )}
+      <div className="mt-5" style={{ width: "50%", margin: "auto" }}>
         <form>
           <h1>Signup Here</h1>
           <div class="form-group">
@@ -60,7 +66,7 @@ class Signup extends PureComponent {
               type="text"
               class="form-control"
               aria-describedby="emailHelp"
-              placeholder="Enter email"
+              placeholder="Enter name"
             />
           </div>
           <div class="form-group">
@@ -99,6 +105,7 @@ class Signup extends PureComponent {
             </button>
           </div>
         </form>
+        <ToastContainer />
       </div>
     );
   }

@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
   backdrop: {
     zIndex: theme.zIndex.drawer + 1,
     color: "#fff",
+    backgroundColor: "gray",
   },
 }));
 
@@ -73,6 +74,7 @@ function Search(props) {
         </div>
       ) : (
         <Backdrop className={classes.backdrop} open>
+          <h4 className="pr-5">Loading Cake data</h4>
           <CircularProgress color="inherit" />
         </Backdrop>
       )}

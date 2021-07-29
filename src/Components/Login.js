@@ -25,6 +25,7 @@ function Login(props) {
           type: "LOGIN",
           payload: res.data,
         });
+
         localStorage.token = res.data.token;
         props.history.push("/cart");
         toast.success("Login Passed", {
@@ -36,10 +37,17 @@ function Login(props) {
         });
       }
     });
+
+    console.log("^^^^^^^^^^", user.email, user.password);
+    if (user.email === "" || user.password === "") {
+      toast.info("Please Enter Field", {
+        position: "top-center",
+      });
+    }
   };
 
   return (
-    <div style={{ width: "50%", margin: "auto" }}>
+    <div className="mt-5" style={{ width: "50%", margin: "auto" }}>
       <form>
         <h1>Login Here</h1>
         <div class="form-group">
