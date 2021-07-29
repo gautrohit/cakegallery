@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Cake from "./Cake";
 
 function CakeItem(props) {
   console.log("cake item data by props:::::" + props.data);
+
   return (
-    <div className="card cakeItem m-3" style={{ width: "14rem" }}>
+    <div
+      className="card cakeItem m-3"
+      style={{ width: "14rem", cursor: "pointer" }}
+    >
       <img
         style={{ height: "18rem" }}
         src={props.data.image}
@@ -20,4 +24,4 @@ function CakeItem(props) {
     </div>
   );
 }
-export default CakeItem;
+export default withRouter(CakeItem);

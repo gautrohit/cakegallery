@@ -48,6 +48,7 @@ function Search(props) {
           <div className="row">
             {cakeResult.map((each, index) => {
               console.log("MAP check::" + each.name);
+
               return <Cake data={each} key={index} />;
             })}
           </div>

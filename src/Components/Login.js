@@ -26,6 +26,7 @@ function Login(props) {
           payload: res.data,
         });
         localStorage.token = res.data.token;
+        props.history.push("/cart");
         toast.success("Login Passed", {
           position: "top-right",
         });
@@ -83,5 +84,7 @@ function Login(props) {
     </div>
   );
 }
+
+Login = withRouter(Login);
 
 export default connect()(Login);

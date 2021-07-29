@@ -18,6 +18,7 @@ function Navbar(props) {
   }
   function logout() {
     alert("Are you sure want to Logout");
+    props.history.push("/login");
     localStorage.removeItem("token");
     window.location.reload();
   }

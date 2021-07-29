@@ -55,6 +55,7 @@ class Signup extends PureComponent {
           <div class="form-group">
             <label for="exampleInputEmail1">Name</label>
             <input
+              required
               onChange={this.handleName}
               type="text"
               class="form-control"
@@ -65,6 +66,7 @@ class Signup extends PureComponent {
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input
+              required
               onChange={this.handleEmail}
               type="email"
               class="form-control"
@@ -78,6 +80,7 @@ class Signup extends PureComponent {
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
             <input
+              required
               onChange={this.handlePassword}
               type="password"
               class="form-control"
