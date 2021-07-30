@@ -18,7 +18,7 @@ function Navbar(props) {
   }
   function logout() {
     alert("Are you sure want to Logout");
-    props.history.push("/login");
+    props.history.push("/");
     localStorage.removeItem("token");
     window.location.reload();
   }
@@ -28,7 +28,7 @@ function Navbar(props) {
         <Link class="navbar-brand" to="/">
           {title}
         </Link>
-
+        <h5 class="navbar-brand pb-0">{props.name}</h5>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <form class="form-inline my-2 my-lg-0">
             <input

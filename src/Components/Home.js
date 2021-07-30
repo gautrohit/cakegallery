@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       <Carousel />
       <CakeList />
-      <CakeDetails />
+      {/* <CakeDetails /> */}
     </div>
   );
 }

@@ -4,7 +4,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Cake from "./Cake";
 import CakeItem from "./CakeItem";
-
 import Backdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { makeStyles } from "@material-ui/core/styles";
@@ -41,10 +40,8 @@ function Search(props) {
       setCakeResult(res.data.data);
       if (!res.data.data.length) {
         setEmptyResponse(true);
-        toast.error("No Cake found");
       } else {
         setEmptyResponse(false);
-        toast.success("Search Cake fetch successfully");
       }
     });
     setLoading(true);
@@ -68,7 +65,7 @@ function Search(props) {
             {cakeResult.map((each, index) => {
               console.log("MAP check::" + each.name);
 
-              return <Cake data={each} key={index} />;
+              return <CakeItem data={each} key={index} />;
             })}
           </div>
         </div>

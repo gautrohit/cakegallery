@@ -27,10 +27,10 @@ function Login(props) {
         });
 
         localStorage.token = res.data.token;
-        props.history.push("/cart");
         toast.success("Login Passed", {
           position: "top-right",
         });
+        props.history.push("/");
       } else {
         toast.error("Login Failed!", {
           position: "top-right",
@@ -44,6 +44,7 @@ function Login(props) {
         position: "top-center",
       });
     }
+    setLoading(true);
   };
 
   return (

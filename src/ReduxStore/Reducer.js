@@ -4,13 +4,12 @@ export var AuthReducer = function (
   },
   action
 ) {
-  console.log("ooooooooooooooooo");
   switch (action.type) {
     case "LOGIN": {
       state = { ...state };
       state["userLoggedIn"] = true;
       state["user"] = action.payload;
-      console.log(">>>>>>>>>>>>>>>>>>>>", state);
+      console.log(">>>>>>>>>^^^REDUCER^^^>>>>>>>>>>>", state);
       return state;
     }
     default:

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CakeItem from "./CakeItem";
-
+import { withRouter } from "react-router";
 import Backdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { makeStyles } from "@material-ui/core/styles";
@@ -56,4 +56,4 @@ function CakeList() {
     </>
   );
 }
-export default CakeList;
+export default withRouter(CakeList);
