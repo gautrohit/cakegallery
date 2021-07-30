@@ -21,7 +21,8 @@ function Cake(props) {
   const [loading, setLoading] = useState(false);
 
   useEffect(async () => {
-    let apiUrl = "https://apifromashu.herokuapp.com/api/cake/";
+    let apiUrl =
+      "https://apifromashu.herokuapp.com/api/cake/" + props.match.params.cakeid;
     await axios({
       url: apiUrl,
       method: "get",
@@ -41,7 +42,10 @@ function Cake(props) {
   return (
     <>
       {loading ? (
-        <div className="container mt-5" style={{ border: "1px solid #000" }}>
+        <div
+          className="container"
+          style={{ border: "1px solid #000", marginTop: "90px" }}
+        >
           <h1>{cakedetails.name}</h1>
           <div className="row">
             <div className="col-sm-4">
